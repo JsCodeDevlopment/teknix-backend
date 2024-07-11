@@ -1,18 +1,27 @@
 import { Api } from "./interfaces/api.start";
-import express, { Express } from "express";
+import express, { Express, RequestHandler } from "express";
 import { Route } from "./route";
+import cors, { CorsOptions } from "cors";
 
 export class ApiExpress implements Api {
   private app: Express;
 
-  private constructor(routes: Route[]) {
+  private constructor(
+    routes: Route[],
+    corsOptions: CorsOptions,
+    middlewares: RequestHandler[] = []
+  ) {
     this.app = express();
     this.app.use(express.json());
+    this.app.use(cors(corsOptions));
+  
+    middlewares.forEach(middleware => this.app.use(middleware));
+
     this.addRoutes(routes);
   }
 
-  public static create(routes: Route[]): ApiExpress {
-    return new ApiExpress(routes);
+  public static create(routes: Route[], corsOptions: CorsOptions, middlewares: RequestHandler[] = []): ApiExpress {
+    return new ApiExpress(routes, corsOptions, middlewares);
   }
 
   private addRoutes(routes: Route[]): void {
@@ -20,8 +29,9 @@ export class ApiExpress implements Api {
       const path = route.getPath();
       const method = route.getMethod();
       const handler = route.getHandler();
+      const middlewares = route.getMiddlewares();
 
-      this.app[method](path, handler);
+      this.app[method](path, ...middlewares, handler);
     });
   }
 

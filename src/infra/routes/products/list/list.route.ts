@@ -50,4 +50,8 @@ export class ListProductRoute implements Route {
   public getMethod() {
     return this.method;
   }
+
+  public getMiddlewares() {
+    return [];
+  }
 }

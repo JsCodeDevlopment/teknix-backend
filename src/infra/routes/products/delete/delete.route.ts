@@ -53,4 +53,8 @@ export class DeleteProductRoute implements Route {
   public getMethod() {
     return this.method;
   }
+
+  public getMiddlewares() {
+    return [];
+  }
 }
