@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { UpdateProductInputDto } from "../../../../../../usecases/product/update/dto/update.input.dto";
-import { UpdateProductOutputDto } from "../../../../../../usecases/product/update/dto/update.output.dto";
-import { UpdateProductUsecase } from "../../../../../../usecases/product/update/update.usecase";
-import { HTTPMethod, HttpMethod, Route } from "../../route";
+import { UpdateProductInputDto } from "../../../../usecases/product/update/dto/update.input.dto";
+import { UpdateProductOutputDto } from "../../../../usecases/product/update/dto/update.output.dto";
+import { UpdateProductUsecase } from "../../../../usecases/product/update/update.usecase";
+import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { UpdateProductResponseDto } from "./dto/update.dto";
 
 export class UpdateProductRoute implements Route {

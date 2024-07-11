@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { DeleteProductUsecase } from "../../../../../../usecases/product/delete/delete.usecase";
-import { HTTPMethod, HttpMethod, Route } from "../../route";
-import { DeleteProductInputDto } from "../../../../../../usecases/product/delete/dto/delete.input.dto";
-import { DeleteProductOutputDto } from "../../../../../../usecases/product/delete/dto/delete.output.dto";
+import { DeleteProductUsecase } from "../../../../usecases/product/delete/delete.usecase";
+import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
+import { DeleteProductInputDto } from "../../../../usecases/product/delete/dto/delete.input.dto";
+import { DeleteProductOutputDto } from "../../../../usecases/product/delete/dto/delete.output.dto";
 import { DeleteProductResponseDto } from "./dto/delete.dto";
 
 export class DeleteProductRoute implements Route {

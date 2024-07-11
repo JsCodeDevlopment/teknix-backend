@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { ListProductUsecase } from "../../../../../../usecases/product/list/list.usecase";
-import { HTTPMethod, HttpMethod, Route } from "../../route";
+import { ListProductUsecase } from "../../../../usecases/product/list/list.usecase";
+import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { ListProductResponseDto } from "./dto/list.dto";
-import { ListProductOutputDto } from "../../../../../../usecases/product/list/dto/list.output.dto";
+import { ListProductOutputDto } from "../../../../usecases/product/list/dto/list.output.dto";
 
 export class ListProductRoute implements Route {
   private constructor(

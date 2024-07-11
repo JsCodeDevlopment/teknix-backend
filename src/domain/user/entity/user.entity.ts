@@ -1,26 +1,24 @@
-export type ProductProps = {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-};
+import { UserProps } from "../interfaces/user.props";
 
-export class Product {
-  private constructor(private readonly props: ProductProps) {
+export class User {
+  private constructor(private readonly props: UserProps) {
     this.validate();
   }
 
-  public static create(name: string, price: number): Product {
-    return new Product({
+  public static create(name: string, email: string, password: string, role: string): User {
+    return new User({
       id: crypto.randomUUID().toString(),
       name,
-      price,
-      quantity: 0,
+      email,
+      password,
+      role,
+      isVerified: false,
+      verificationToken: crypto.randomUUID().toString(),
     });
   }
 
-  public static with(props: ProductProps) {
-    return new Product(props);
+  public static with(props: UserProps) {
+    return new User(props);
   }
 
   private validate() {

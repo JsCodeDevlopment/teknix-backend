@@ -1,4 +1,4 @@
-import { Api } from "../../api";
+import { Api } from "./interfaces/api.start";
 import express, { Express } from "express";
 import { Route } from "./route";
 
