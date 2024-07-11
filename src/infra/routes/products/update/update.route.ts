@@ -56,4 +56,8 @@ export class UpdateProductRoute implements Route {
   public getMethod() {
     return this.method;
   }
+
+  public getMiddlewares() {
+    return [];
+  }
 }
