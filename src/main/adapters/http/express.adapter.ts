@@ -12,6 +12,6 @@ export class ExpressAdapter {
   }
 
   public static adaptResponse(res: Response, httpResponse: HttpResponse): void {
-    res.status(httpResponse.status).json(httpResponse.body);
+    res.status(httpResponse.status).json(httpResponse.body).send();
   }
 }

@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { ListProductByIdInputDto } from "../../../../../../usecases/product/listById/dto/listById.input.dto";
-import { ListProductByIdUsecase } from "../../../../../../usecases/product/listById/listById.usecase";
-import { HTTPMethod, HttpMethod, Route } from "../../route";
-import { ListProductByIdOutputDto } from "../../../../../../usecases/product/listById/dto/listById.output";
+import { ListProductByIdInputDto } from "../../../../usecases/product/listById/dto/listById.input.dto";
+import { ListProductByIdUsecase } from "../../../../usecases/product/listById/listById.usecase";
+import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
+import { ListProductByIdOutputDto } from "../../../../usecases/product/listById/dto/listById.output";
 import { ListProductByIdResponseDto } from "./dto/listById.dto";
 
 export class ListProductByIdRoute implements Route {
