@@ -1,0 +1,241 @@
+{
+  "src": {
+    "folders": {
+      "domain": {
+        "folders": {
+          "product": {
+            "folders": {
+              "entity": {
+                "folders": {}
+              },
+              "gateway": {
+                "folders": {}
+              },
+              "interfaces": {
+                "folders": {}
+              }
+            }
+          },
+          "user": {
+            "folders": {
+              "entity": {
+                "folders": {}
+              },
+              "gateway": {
+                "folders": {}
+              },
+              "interfaces": {
+                "folders": {}
+              }
+            }
+          }
+        }
+      },
+      "factories": {
+        "folders": {
+          "repositories": {
+            "folders": {
+              "product": {
+                "folders": {}
+              },
+              "user": {
+                "folders": {}
+              }
+            }
+          },
+          "routes": {
+            "folders": {
+              "product": {
+                "folders": {}
+              },
+              "user": {
+                "folders": {}
+              }
+            }
+          },
+          "useCases": {
+            "folders": {
+              "product": {
+                "folders": {}
+              },
+              "user": {
+                "folders": {}
+              }
+            }
+          }
+        }
+      },
+      "infra": {
+        "folders": {
+          "repositories": {
+            "folders": {
+              "product": {
+                "folders": {}
+              },
+              "user": {
+                "folders": {}
+              }
+            }
+          },
+          "routes": {
+            "folders": {
+              "products": {
+                "folders": {
+                  "create": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  },
+                  "delete": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  },
+                  "list": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  },
+                  "listById": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  },
+                  "update": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  }
+                }
+              },
+              "user": {
+                "folders": {
+                  "create": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  },
+                  "list": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "main": {
+        "folders": {
+          "adapters": {
+            "folders": {
+              "http": {
+                "folders": {
+                  "interfaces": {
+                    "folders": {}
+                  }
+                }
+              }
+            }
+          },
+          "api": {
+            "folders": {
+              "config": {
+                "folders": {}
+              },
+              "interfaces": {
+                "folders": {}
+              }
+            }
+          },
+          "docs": {
+            "folders": {}
+          }
+        }
+      },
+      "package": {
+        "folders": {
+          "prisma": {
+            "folders": {}
+          }
+        }
+      },
+      "usecases": {
+        "folders": {
+          "product": {
+            "folders": {
+              "create": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
+              "delete": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
+              "list": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
+              "listById": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
+              "update": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              }
+            }
+          },
+          "user": {
+            "folders": {
+              "create": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
+              "list": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
