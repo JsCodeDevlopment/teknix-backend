@@ -19,14 +19,15 @@ export class UpdateProductUsecase
     price,
   }: UpdateProductInputDto): Promise<UpdateProductOutputDto> {
     const productExist = await this.productGateway.listById(id);
-    
+
     if (!productExist) throw new Error("Product not found");
 
     const updatedProduct = Product.with({
       id: productExist.id,
       name: name || productExist.name,
       price: price || productExist.price,
-      quantity: productExist.quantity,
+      description: productExist.description || productExist.description,
+      image: productExist.image || productExist.image,
     });
 
     await this.productGateway.update(updatedProduct);

@@ -43,7 +43,8 @@ export class ListProductByIdRoute implements Route {
         id: input.product.id,
         name: input.product.name,
         price: input.product.price,
-        quantity: input.product.quantity,
+        description: input.product.description,
+        image: input.product.image,
       },
     };
     return response;

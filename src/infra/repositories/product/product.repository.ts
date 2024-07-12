@@ -14,7 +14,8 @@ export class ProductRepository implements ProductGateway {
       id: product.id,
       name: product.name,
       price: product.price,
-      quantity: product.quantity,
+      description: product.description,
+      image: product.image,
     };
 
     await this.prismaClient.product.create({ data });
@@ -28,7 +29,8 @@ export class ProductRepository implements ProductGateway {
         id: prod.id,
         name: prod.name,
         price: prod.price,
-        quantity: prod.quantity,
+        description: prod.description,
+        image: prod.image,
       })
     );
   }
@@ -46,7 +48,8 @@ export class ProductRepository implements ProductGateway {
       id: product.id,
       name: product.name,
       price: product.price,
-      quantity: product.quantity,
+      description: product.description,
+      image: product.image,
     });
   }
 
@@ -55,7 +58,8 @@ export class ProductRepository implements ProductGateway {
       id: product.id,
       name: product.name,
       price: product.price,
-      quantity: product.quantity,
+      description: product.description,
+      image: product.image,
     };
 
     await this.prismaClient.product.update({

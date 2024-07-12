@@ -25,11 +25,13 @@ export class CreateProductRoute implements Route {
 
   public getHandler() {
     return async (req: Request, res: Response) => {
-      const { name, price } = req.body;
+      const { name, price, description, image } = req.body;
       
       const input: CreateProductInputDto = {
         name,
         price,
+        description,
+        image
       };
 
       const output: CreateProductOutputDto =

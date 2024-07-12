@@ -27,7 +27,8 @@ export class ListProductByIdUsecase
         id: product.id,
         name: product.name,
         price: product.price,
-        quantity: product.quantity,
+        description: product.description,
+        image: product.image,
       },
     };
 

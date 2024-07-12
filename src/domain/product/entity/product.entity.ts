@@ -5,12 +5,18 @@ export class Product {
     this.validate();
   }
 
-  public static create(name: string, price: number): Product {
+  public static create(
+    name: string,
+    price: number,
+    description: string,
+    image: string
+  ): Product {
     return new Product({
       id: crypto.randomUUID().toString(),
       name,
+      description,
+      image,
       price,
-      quantity: 0,
     });
   }
 
@@ -19,8 +25,8 @@ export class Product {
   }
 
   private validate() {
-    if (this.props.quantity < 0) {
-      throw new Error("Product quantity cannot be negative");
+    if (this.props.name === "" || this.props.price === 0) {
+      throw new Error("Product name is required and price must be greater than 0.");
     }
   }
 
@@ -36,15 +42,11 @@ export class Product {
     return this.props.price;
   }
 
-  public get quantity() {
-    return this.props.quantity;
+  public get image() {
+    return this.props.image;
   }
 
-  public addQuantity(quantity: number) {
-    this.props.quantity += quantity;
-  }
-
-  public removeQuantity(quantity: number) {
-    this.props.quantity -= quantity;
+  public get description() {
+    return this.props.description;
   }
 }

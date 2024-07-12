@@ -16,8 +16,10 @@ export class CreateProductUsecase
   public async execute({
     name,
     price,
+    description,
+    image,
   }: CreateProductInputDto): Promise<CreateProductOutputDto> {
-    const aProduct = Product.create(name, price);
+    const aProduct = Product.create(name, price, description, image);
 
     await this.productGateway.create(aProduct);
 

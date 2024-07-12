@@ -17,7 +17,8 @@ model Product {
   id       String @id @default(cuid())
   name     String
   price    Float
-  quantity Int
+  description String
+  image    String
 
   @@map("products")
 }

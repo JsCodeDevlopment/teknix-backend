@@ -25,12 +25,14 @@ export class UpdateProductRoute implements Route {
   public getHandler() {
     return async (req: Request, res: Response) => {
       const { id } = req.params;
-      const { name, price } = req.body;
+      const { name, price, description, image } = req.body;
 
       const input: UpdateProductInputDto = {
         id,
         name,
         price,
+        description,
+        image
       };
 
       const output: UpdateProductOutputDto =
