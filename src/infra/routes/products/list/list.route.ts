@@ -38,6 +38,8 @@ export class ListProductRoute implements Route {
         id: prod.id,
         name: prod.name,
         price: prod.price,
+        description: prod.description,
+        image: prod.image,
       })),
     };
     return response;
