@@ -127,7 +127,21 @@
                       }
                     }
                   },
+                  "delete": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  },
                   "list": {
+                    "folders": {
+                      "dto": {
+                        "folders": {}
+                      }
+                    }
+                  },
+                  "listById": {
                     "folders": {
                       "dto": {
                         "folders": {}
@@ -225,7 +239,21 @@
                   }
                 }
               },
+              "delete": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
               "list": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
+              "listById": {
                 "folders": {
                   "dto": {
                     "folders": {}

@@ -34,4 +34,29 @@ export class UserRepository implements UserGateway {
       })
     );
   }
+
+  public async listById(id: string): Promise<User> {
+    const user = await this.prismaClient.user.findUnique({
+      where: { id },
+    });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    return User.with({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      password: user.password,
+      isVerified: user.isVerified,
+      verificationToken: user.verificationToken ?? "",
+    });
+  }
+
+  public async delete(id: string): Promise<void> {
+    await this.prismaClient.user.delete({
+      where: { id },
+    });
+  }
 }
