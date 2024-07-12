@@ -3,7 +3,6 @@ export type UserProps = {
   name: string;
   email: string;
   password: string;
-  role: string;
   isVerified: boolean;
   verificationToken: string;
 };

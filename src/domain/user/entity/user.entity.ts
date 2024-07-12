@@ -5,13 +5,16 @@ export class User {
     this.validate();
   }
 
-  public static create(name: string, email: string, password: string, role: string): User {
+  public static create(
+    name: string,
+    email: string,
+    password: string,
+  ): User {
     return new User({
       id: crypto.randomUUID().toString(),
       name,
       email,
       password,
-      role,
       isVerified: false,
       verificationToken: crypto.randomUUID().toString(),
     });
@@ -22,8 +25,12 @@ export class User {
   }
 
   private validate() {
-    if (this.props.quantity < 0) {
-      throw new Error("Product quantity cannot be negative");
+    if (
+      this.props.name === "" ||
+      this.props.email === "" ||
+      this.props.password === ""
+    ) {
+      throw new Error("Name, email & password is required");
     }
   }
 
@@ -35,19 +42,19 @@ export class User {
     return this.props.name;
   }
 
-  public get price() {
-    return this.props.price;
+  public get email() {
+    return this.props.email;
   }
 
-  public get quantity() {
-    return this.props.quantity;
+  public get password() {
+    return this.props.password;
   }
 
-  public addQuantity(quantity: number) {
-    this.props.quantity += quantity;
+  public get isVerified() {
+    return this.props.isVerified;
   }
 
-  public removeQuantity(quantity: number) {
-    this.props.quantity -= quantity;
+  public get verificationToken() {
+    return this.props.verificationToken;
   }
 }
