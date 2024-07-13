@@ -11,6 +11,7 @@ import { createUserRepository } from "./factories/repositories/user/user.reposit
 import { createUserUseCases } from "./factories/useCases/user/user.usecase.factory";
 import { createUserRoutes } from "./factories/routes/user/user.routes.factory.";
 import { generateFolderStructure } from "./main/docs/index";
+import { BcryptPasswordEncryptor } from "./infra/services/Encryptor/bcrypt.encryptor";
 
 
 function server() {
@@ -19,7 +20,8 @@ function server() {
   const productRoutes = createProductRoutes(productUseCases);
 
   const userRepository = createUserRepository();
-  const userUseCases = createUserUseCases(userRepository);
+  const passwordEncryptor = new BcryptPasswordEncryptor();
+  const userUseCases = createUserUseCases(userRepository, passwordEncryptor);
   const userRoutes = createUserRoutes(userUseCases);
 
   const globalMiddlawares = [];
