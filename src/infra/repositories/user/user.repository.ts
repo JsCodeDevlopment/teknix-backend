@@ -18,6 +18,21 @@ export class UserRepository implements UserGateway {
     await UserModel.create(data);
   }
 
+  public async findByEmail(email: string): Promise<User | null> {
+    const users = await UserModel.findOne({ where: { email } });
+    
+    if (!users) return null;
+
+    return User.with({
+      id: users.id,
+      name: users.name,
+      email: users.email,
+      password: users.password,
+      isVerified: users.isVerified,
+      verificationToken: users.verificationToken ?? "",
+    });
+  }
+
   public async list(): Promise<User[]> {
     const users = await UserModel.findAll();
 
