@@ -2,6 +2,7 @@ import { Api } from "./interfaces/api.start";
 import express, { Express, RequestHandler } from "express";
 import { Route } from "./route";
 import cors, { CorsOptions } from "cors";
+import { connectDatabase } from "../../infra/sequelize";
 
 export class ApiExpress implements Api {
   private app: Express;
@@ -35,7 +36,9 @@ export class ApiExpress implements Api {
     });
   }
 
-  public start(port: number): void {
+  public async start(port: number): Promise<void> {
+    await connectDatabase();
+
     this.app.listen(port, () => {
       console.log(`Server running on port ${port}`);
       console.log(`http://localhost:${port}\n`);
