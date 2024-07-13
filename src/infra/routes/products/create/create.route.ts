@@ -1,10 +1,10 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { CreateProductUsecase } from "../../../../usecases/product/create/create.usecase";
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { CreateProductResponseDto } from "./dto/create.dto";
 import { CreateProductInputDto } from "../../../../usecases/product/create/dto/create.input.dto";
 import { CreateProductOutputDto } from "../../../../usecases/product/create/dto/create.output.dto";
-import { statusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
+import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
 
 export class CreateProductRoute implements Route {
   private constructor(
@@ -24,22 +24,26 @@ export class CreateProductRoute implements Route {
   }
 
   public getHandler() {
-    return async (req: Request, res: Response) => {
-      const { name, price, description, image } = req.body;
-      
-      const input: CreateProductInputDto = {
-        name,
-        price,
-        description,
-        image
-      };
+    return async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const { name, price, description, image } = req.body;
 
-      const output: CreateProductOutputDto =
-        await this.createProductService.execute(input);
+        const input: CreateProductInputDto = {
+          name,
+          price,
+          description,
+          image,
+        };
 
-      const response = this.present(output);
+        const output: CreateProductOutputDto =
+          await this.createProductService.execute(input);
 
-      res.status(statusCode.CREATED).json(response);
+        const response = this.present(output);
+
+        res.status(StatusCode.CREATED).json(response);
+      } catch (error) {
+        next(error);
+      }
     };
   }
 

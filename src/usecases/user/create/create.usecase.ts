@@ -1,5 +1,6 @@
 import { User } from "../../../domain/user/entity/user.entity";
 import { UserGateway } from "../../../domain/user/gateway/user.gateway";
+import { BadRequestError } from "../../errors/bad.request.error";
 import { Usecase } from "../../usecase";
 import { CreateUserInputDto } from "./dto/create.input.dto";
 import { CreateUserOutputDto } from "./dto/create.output.dto";
@@ -18,6 +19,12 @@ export class CreateUserUsecase
     email,
     password,
   }: CreateUserInputDto): Promise<CreateUserOutputDto> {
+    if (!name || !email || !password) {
+      throw new BadRequestError(
+        "Some of the information was no longer received."
+      );
+    }
+
     const aUser = User.create(name, email, password);
 
     await this.userGateway.create(aUser);

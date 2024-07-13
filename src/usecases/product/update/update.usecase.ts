@@ -1,5 +1,6 @@
 import { Product } from "../../../domain/product/entity/product.entity";
 import { ProductGateway } from "../../../domain/product/gateway/product.gateway";
+import { NotFoundError } from "../../errors/not.found.request.error";
 import { Usecase } from "../../usecase";
 import { UpdateProductInputDto } from "./dto/update.input.dto";
 import { UpdateProductOutputDto } from "./dto/update.output.dto";
@@ -20,7 +21,7 @@ export class UpdateProductUsecase
   }: UpdateProductInputDto): Promise<UpdateProductOutputDto> {
     const productExist = await this.productGateway.listById(id);
 
-    if (!productExist) throw new Error("Product not found");
+    if (!productExist) throw new NotFoundError("Product not found");
 
     const updatedProduct = Product.with({
       id: productExist.id,

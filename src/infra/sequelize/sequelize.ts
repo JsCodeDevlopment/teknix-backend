@@ -3,7 +3,7 @@ import { ProductModel } from "./models/product/product.model";
 import { UserModel } from "./models/user/user.model";
 
 const sequelize: Sequelize = new Sequelize({
-  dialect: "postgres",
+  dialect: process.env.DB_DIALECT as "mysql" | "postgres" | "sqlite" | "mariadb" | "mssql",
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   database: process.env.DB_NAME,

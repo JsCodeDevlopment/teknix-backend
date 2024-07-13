@@ -1,8 +1,9 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { ListProductUsecase } from "../../../../usecases/product/list/list.usecase";
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { ListProductResponseDto } from "./dto/list.dto";
 import { ListProductOutputDto } from "../../../../usecases/product/list/dto/list.output.dto";
+import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
 
 export class ListProductRoute implements Route {
   private constructor(
@@ -22,13 +23,17 @@ export class ListProductRoute implements Route {
   }
 
   public getHandler() {
-    return async (req: Request, res: Response) => {
-      const output: ListProductOutputDto =
-        await this.listProductService.execute();
+    return async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const output: ListProductOutputDto =
+          await this.listProductService.execute();
 
-      const response = this.present(output);
+        const response = this.present(output);
 
-      res.status(200).json(response).send();
+        res.status(StatusCode.OK).json(response).send();
+      } catch (error) {
+        next(error);
+      }
     };
   }
 

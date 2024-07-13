@@ -1,8 +1,9 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { ListUserResponseDto } from "./dto/list.dto";
 import { ListUserUsecase } from "../../../../usecases/user/list/list.usecase";
 import { ListUserOutputDto } from "../../../../usecases/user/list/dto/list.output.dto";
+import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
 
 export class ListUserRoute implements Route {
   private constructor(
@@ -11,24 +12,21 @@ export class ListUserRoute implements Route {
     private readonly method: HTTPMethod
   ) {}
 
-  public static create(
-    listUserService: ListUserUsecase
-  ): ListUserRoute {
-    return new ListUserRoute(
-      "/users",
-      listUserService,
-      HttpMethod.GET
-    );
+  public static create(listUserService: ListUserUsecase): ListUserRoute {
+    return new ListUserRoute("/users", listUserService, HttpMethod.GET);
   }
 
   public getHandler() {
-    return async (req: Request, res: Response) => {
-      const output: ListUserOutputDto =
-        await this.listUserService.execute();
+    return async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const output: ListUserOutputDto = await this.listUserService.execute();
 
-      const response = this.present(output);
+        const response = this.present(output);
 
-      res.status(200).json(response).send();
+        res.status(StatusCode.OK).json(response).send();
+      } catch (error) {
+        next(error);
+      }
     };
   }
 

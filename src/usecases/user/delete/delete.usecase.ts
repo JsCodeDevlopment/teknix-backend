@@ -1,5 +1,6 @@
 import { User } from "../../../domain/user/entity/user.entity";
 import { UserGateway } from "../../../domain/user/gateway/user.gateway";
+import { NotFoundError } from "../../errors/not.found.request.error";
 import { Usecase } from "../../usecase";
 import { DeleteUserInputDto } from "./dto/delete.input.dto";
 import { DeleteUserOutputDto } from "./dto/delete.output.dto";
@@ -18,7 +19,7 @@ export class DeleteUserUsecase
   }: DeleteUserInputDto): Promise<DeleteUserOutputDto> {
     const aUser = await this.userGateway.listById(id);
 
-    if (!aUser) throw new Error("User not found");
+    if (!aUser) throw new NotFoundError("User not found");
 
     await this.userGateway.delete(aUser.id);
 

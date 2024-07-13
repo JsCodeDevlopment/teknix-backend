@@ -3,6 +3,7 @@ import express, { Express, RequestHandler } from "express";
 import { Route } from "./route";
 import cors, { CorsOptions } from "cors";
 import { connectDatabase } from "../../infra/sequelize";
+import { errorHandlerMiddleware } from "../middlewares/error.handler.middlewares";
 
 export class ApiExpress implements Api {
   private app: Express;
@@ -15,13 +16,18 @@ export class ApiExpress implements Api {
     this.app = express();
     this.app.use(express.json());
     this.app.use(cors(corsOptions));
-  
-    middlewares.forEach(middleware => this.app.use(middleware));
+
+    middlewares.forEach((middleware) => this.app.use(middleware));
 
     this.addRoutes(routes);
+    this.app.use(errorHandlerMiddleware);
   }
 
-  public static create(routes: Route[], corsOptions: CorsOptions, middlewares: RequestHandler[] = []): ApiExpress {
+  public static create(
+    routes: Route[],
+    corsOptions: CorsOptions,
+    middlewares: RequestHandler[] = []
+  ): ApiExpress {
     return new ApiExpress(routes, corsOptions, middlewares);
   }
 
