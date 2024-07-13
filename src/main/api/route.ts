@@ -12,7 +12,7 @@ export const HttpMethod = {
 // export type HttpMethod = typeof HttpMethod[keyof typeof HttpMethod];
 
 export interface Route {
-  getHandler(): (req: Request, res: Response) => Promise<void>;
+  getHandler(): (req: Request, res: Response, next: NextFunction) => Promise<void>;
   getPath(): string;
   getMethod(): HTTPMethod;
   getMiddlewares(): Array<

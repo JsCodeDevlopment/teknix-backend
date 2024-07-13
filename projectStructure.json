@@ -196,11 +196,17 @@
           },
           "docs": {
             "folders": {}
+          },
+          "middlewares": {
+            "folders": {}
           }
         }
       },
       "usecases": {
         "folders": {
+          "errors": {
+            "folders": {}
+          },
           "product": {
             "folders": {
               "create": {

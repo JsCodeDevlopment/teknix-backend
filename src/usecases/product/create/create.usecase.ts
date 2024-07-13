@@ -1,5 +1,6 @@
 import { Product } from "../../../domain/product/entity/product.entity";
 import { ProductGateway } from "../../../domain/product/gateway/product.gateway";
+import { BadRequestError } from "../../errors/bad.request.error";
 import { Usecase } from "../../usecase";
 import { CreateProductInputDto } from "./dto/create.input.dto";
 import { CreateProductOutputDto } from "./dto/create.output.dto";
@@ -19,6 +20,10 @@ export class CreateProductUsecase
     description,
     image,
   }: CreateProductInputDto): Promise<CreateProductOutputDto> {
+    if (!name || !price || !description || !image) {
+      throw new BadRequestError("Some of the information was no longer received.");
+    }
+
     const aProduct = Product.create(name, price, description, image);
 
     await this.productGateway.create(aProduct);

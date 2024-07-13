@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { DeleteProductUsecase } from "../../../../usecases/product/delete/delete.usecase";
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { DeleteProductInputDto } from "../../../../usecases/product/delete/dto/delete.input.dto";
@@ -23,19 +23,23 @@ export class DeleteProductRoute implements Route {
   }
 
   public getHandler() {
-    return async (req: Request, res: Response) => {
-      const { id } = req.params;
+    return async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const { id } = req.params;
 
-      const input: DeleteProductInputDto = {
-        id,
-      };
+        const input: DeleteProductInputDto = {
+          id,
+        };
 
-      const output: DeleteProductOutputDto =
-        await this.deleteProductService.execute(input);
+        const output: DeleteProductOutputDto =
+          await this.deleteProductService.execute(input);
 
-      const response = this.present(output);
+        const response = this.present(output);
 
-      res.status(200).json(response).send();
+        res.status(200).json(response).send();
+      } catch (error) {
+        next(error);
+      }
     };
   }
 

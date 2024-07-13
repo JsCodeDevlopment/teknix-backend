@@ -1,9 +1,10 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { DeleteUserResponseDto } from "./dto/delete.dto";
 import { DeleteUserUsecase } from "../../../../usecases/user/delete/delete.usecase";
 import { DeleteUserInputDto } from "../../../../usecases/user/delete/dto/delete.input.dto";
 import { DeleteUserOutputDto } from "../../../../usecases/user/delete/dto/delete.output.dto";
+import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
 
 export class DeleteUserRoute implements Route {
   private constructor(
@@ -12,9 +13,7 @@ export class DeleteUserRoute implements Route {
     private readonly method: HTTPMethod
   ) {}
 
-  public static create(
-    deleteUserService: DeleteUserUsecase
-  ): DeleteUserRoute {
+  public static create(deleteUserService: DeleteUserUsecase): DeleteUserRoute {
     return new DeleteUserRoute(
       "/users/:id",
       deleteUserService,
@@ -23,19 +22,23 @@ export class DeleteUserRoute implements Route {
   }
 
   public getHandler() {
-    return async (req: Request, res: Response) => {
-      const { id } = req.params;
+    return async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const { id } = req.params;
 
-      const input: DeleteUserInputDto = {
-        id,
-      };
+        const input: DeleteUserInputDto = {
+          id,
+        };
 
-      const output: DeleteUserOutputDto =
-        await this.deleteUserService.execute(input);
+        const output: DeleteUserOutputDto =
+          await this.deleteUserService.execute(input);
 
-      const response = this.present(output);
+        const response = this.present(output);
 
-      res.status(200).json(response).send();
+        res.status(StatusCode.OK).json(response).send();
+      } catch (error) {
+        next(error);
+      }
     };
   }
 

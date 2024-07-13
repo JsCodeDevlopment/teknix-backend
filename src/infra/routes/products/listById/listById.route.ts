@@ -1,9 +1,10 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { ListProductByIdInputDto } from "../../../../usecases/product/listById/dto/listById.input.dto";
 import { ListProductByIdUsecase } from "../../../../usecases/product/listById/listById.usecase";
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { ListProductByIdOutputDto } from "../../../../usecases/product/listById/dto/listById.output";
 import { ListProductByIdResponseDto } from "./dto/listById.dto";
+import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
 
 export class ListProductByIdRoute implements Route {
   private constructor(
@@ -23,17 +24,21 @@ export class ListProductByIdRoute implements Route {
   }
 
   public getHandler() {
-    return async (req: Request, res: Response) => {
-      const input: ListProductByIdInputDto = {
-        id: req.params.id,
-      };
+    return async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const input: ListProductByIdInputDto = {
+          id: req.params.id,
+        };
 
-      const output: ListProductByIdOutputDto =
-        await this.listProductByIdService.execute(input);
+        const output: ListProductByIdOutputDto =
+          await this.listProductByIdService.execute(input);
 
-      const response = this.present(output);
+        const response = this.present(output);
 
-      res.status(200).json(response).send();
+        res.status(StatusCode.OK).json(response).send();
+      } catch (error) {
+        next(error);
+      }
     };
   }
 
