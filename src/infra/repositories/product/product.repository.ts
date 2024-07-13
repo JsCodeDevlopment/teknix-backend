@@ -1,12 +1,10 @@
-import { PrismaClient } from "@prisma/client";
 import { ProductGateway } from "../../../domain/product/gateway/product.gateway";
 import { Product } from "../../../domain/product/entity/product.entity";
+import { ProductModel } from "../../sequelize/models/product/product.model";
 
 export class ProductRepository implements ProductGateway {
-  private constructor(private readonly prismaClient: PrismaClient) {}
-
-  public static create(prismaClient: PrismaClient) {
-    return new ProductRepository(prismaClient);
+  public static create(): ProductRepository {
+    return new ProductRepository();
   }
 
   public async create(product: Product): Promise<void> {
@@ -18,11 +16,11 @@ export class ProductRepository implements ProductGateway {
       image: product.image,
     };
 
-    await this.prismaClient.product.create({ data });
+    await ProductModel.create(data);
   }
 
   public async list(): Promise<Product[]> {
-    const products = await this.prismaClient.product.findMany();
+    const products = await ProductModel.findAll();
 
     return products.map((prod) =>
       Product.with({
@@ -36,9 +34,7 @@ export class ProductRepository implements ProductGateway {
   }
 
   public async listById(id: string): Promise<Product> {
-    const product = await this.prismaClient.product.findUnique({
-      where: { id },
-    });
+    const product = await ProductModel.findByPk(id);
 
     if (!product) {
       throw new Error("Product not found");
@@ -62,13 +58,10 @@ export class ProductRepository implements ProductGateway {
       image: product.image,
     };
 
-    await this.prismaClient.product.update({
-      where: { id: product.id },
-      data,
-    });
+    await ProductModel.update(data, { where: { id: product.id } });
   }
 
   public async delete(id: string): Promise<void> {
-    await this.prismaClient.product.delete({ where: { id } });
+    await ProductModel.destroy({ where: { id } });
   }
 }

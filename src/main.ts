@@ -1,3 +1,7 @@
+import "reflect-metadata";
+import dotenv from "dotenv";
+dotenv.config();
+
 import { ApiExpress } from "./main/api/api.express";
 import { createProductRepository } from "./factories/repositories/product/product.repository.factory";
 import { createProductUseCases } from "./factories/useCases/product/product.usecase.factory";
@@ -6,13 +10,14 @@ import { corsOptions } from "./main/api/config/cors";
 import { createUserRepository } from "./factories/repositories/user/user.repository.factory";
 import { createUserUseCases } from "./factories/useCases/user/user.usecase.factory";
 import { createUserRoutes } from "./factories/routes/user/user.routes.factory.";
-import { generateFolderStructure } from "./main/docs/index"
+import { generateFolderStructure } from "./main/docs/index";
+
 
 function server() {
   const productRepository = createProductRepository();
   const productUseCases = createProductUseCases(productRepository);
   const productRoutes = createProductRoutes(productUseCases);
-  
+
   const userRepository = createUserRepository();
   const userUseCases = createUserUseCases(userRepository);
   const userRoutes = createUserRoutes(userUseCases);

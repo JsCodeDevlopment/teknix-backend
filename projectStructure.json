@@ -151,6 +151,23 @@
                 }
               }
             }
+          },
+          "sequelize": {
+            "folders": {
+              "migrations": {
+                "folders": {}
+              },
+              "models": {
+                "folders": {
+                  "product": {
+                    "folders": {}
+                  },
+                  "user": {
+                    "folders": {}
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -178,13 +195,6 @@
             }
           },
           "docs": {
-            "folders": {}
-          }
-        }
-      },
-      "package": {
-        "folders": {
-          "prisma": {
             "folders": {}
           }
         }

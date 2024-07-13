@@ -1,12 +1,10 @@
-import { PrismaClient } from "@prisma/client";
 import { UserGateway } from "../../../domain/user/gateway/user.gateway";
 import { User } from "../../../domain/user/entity/user.entity";
+import { UserModel } from "../../sequelize/models/user/user.model";
 
 export class UserRepository implements UserGateway {
-  private constructor(private readonly prismaClient: PrismaClient) {}
-
-  public static create(prismaClient: PrismaClient) {
-    return new UserRepository(prismaClient);
+  public static create(): UserRepository {
+    return new UserRepository();
   }
 
   public async create(user: User): Promise<void> {
@@ -17,11 +15,11 @@ export class UserRepository implements UserGateway {
       password: user.password,
     };
 
-    await this.prismaClient.user.create({ data });
+    await UserModel.create(data);
   }
 
   public async list(): Promise<User[]> {
-    const users = await this.prismaClient.user.findMany();
+    const users = await UserModel.findAll();
 
     return users.map((user) =>
       User.with({
@@ -36,9 +34,7 @@ export class UserRepository implements UserGateway {
   }
 
   public async listById(id: string): Promise<User> {
-    const user = await this.prismaClient.user.findUnique({
-      where: { id },
-    });
+    const user = await UserModel.findByPk(id);
 
     if (!user) {
       throw new Error("User not found");
@@ -55,7 +51,7 @@ export class UserRepository implements UserGateway {
   }
 
   public async delete(id: string): Promise<void> {
-    await this.prismaClient.user.delete({
+    await UserModel.destroy({
       where: { id },
     });
   }
