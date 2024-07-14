@@ -45,6 +45,9 @@
           },
           "routes": {
             "folders": {
+              "auth": {
+                "folders": {}
+              },
               "product": {
                 "folders": {}
               },
@@ -55,6 +58,9 @@
           },
           "useCases": {
             "folders": {
+              "auth": {
+                "folders": {}
+              },
               "product": {
                 "folders": {}
               },
@@ -79,6 +85,16 @@
           },
           "routes": {
             "folders": {
+              "auth": {
+                "folders": {
+                  "login": {
+                    "folders": {}
+                  },
+                  "me": {
+                    "folders": {}
+                  }
+                }
+              },
               "products": {
                 "folders": {
                   "create": {
@@ -171,7 +187,10 @@
           },
           "services": {
             "folders": {
-              "Encryptor": {
+              "encryptor": {
+                "folders": {}
+              },
+              "tokenGenerator": {
                 "folders": {}
               }
             }
@@ -180,6 +199,9 @@
       },
       "main": {
         "folders": {
+          "@types": {
+            "folders": {}
+          },
           "adapters": {
             "folders": {
               "http": {
@@ -211,6 +233,24 @@
       },
       "usecases": {
         "folders": {
+          "auth": {
+            "folders": {
+              "generateToken": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              },
+              "login": {
+                "folders": {
+                  "dto": {
+                    "folders": {}
+                  }
+                }
+              }
+            }
+          },
           "errors": {
             "folders": {}
           },
