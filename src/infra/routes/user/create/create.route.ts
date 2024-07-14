@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from "express";
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { CreateUserResponseDto } from "./dto/create.dto";
 import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
-import { CreateUserUsecase } from "../../../../usecases/user/create/create.usecase";
 import { CreateUserInputDto } from "../../../../usecases/user/create/dto/create.input.dto";
 import { CreateUserOutputDto } from "../../../../usecases/user/create/dto/create.output.dto";
+import { CreateUserUsecase } from "../../../../usecases/user/create/create.usecase";
 
 export class CreateUserRoute implements Route {
   private constructor(

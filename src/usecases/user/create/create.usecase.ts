@@ -1,6 +1,6 @@
 import { User } from "../../../domain/user/entity/user.entity";
 import { UserGateway } from "../../../domain/user/gateway/user.gateway";
-import { PasswordEncryptor } from "../../../infra/services/Encryptor/password.encryptor";
+import { PasswordEncryptor } from "../../../infra/services/encryptor/password.encryptor";
 import { BadRequestError } from "../../errors/bad.request.error";
 import { Usecase } from "../../usecase";
 import { CreateUserInputDto } from "./dto/create.input.dto";
