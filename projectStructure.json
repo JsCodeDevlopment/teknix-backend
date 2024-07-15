@@ -1,369 +1,165 @@
 {
   "src": {
-    "folders": {
-      "domain": {
-        "folders": {
-          "product": {
-            "folders": {
-              "entity": {
-                "folders": {}
-              },
-              "gateway": {
-                "folders": {}
-              },
-              "interfaces": {
-                "folders": {}
-              }
+    "domain": {
+      "product": {
+        "entity": {},
+        "gateway": {},
+        "interfaces": {}
+      },
+      "user": {
+        "entity": {},
+        "gateway": {},
+        "interfaces": {}
+      }
+    },
+    "factories": {
+      "repositories": {
+        "product": {},
+        "user": {}
+      },
+      "routes": {
+        "auth": {},
+        "product": {},
+        "user": {}
+      },
+      "useCases": {
+        "auth": {},
+        "product": {},
+        "user": {}
+      }
+    },
+    "infra": {
+      "repositories": {
+        "product": {},
+        "user": {}
+      },
+      "routes": {
+        "auth": {
+          "login": {},
+          "me": {},
+          "products": {
+            "create": {
+              "dto": {}
+            },
+            "delete": {
+              "dto": {}
+            },
+            "list": {
+              "dto": {}
+            },
+            "listById": {
+              "dto": {}
+            },
+            "update": {
+              "dto": {}
             }
           },
           "user": {
-            "folders": {
-              "entity": {
-                "folders": {}
-              },
-              "gateway": {
-                "folders": {}
-              },
-              "interfaces": {
-                "folders": {}
-              }
+            "create": {
+              "dto": {}
+            },
+            "delete": {
+              "dto": {}
+            },
+            "list": {
+              "dto": {}
+            },
+            "listById": {
+              "dto": {}
             }
           }
         }
       },
-      "factories": {
+      "sequelize": {
+        "migrations": {},
+        "models": {
+          "product": {},
+          "user": {}
+        }
+      },
+      "services": {
+        "encryptor": {},
+        "tokenGenerator": {}
+      }
+    },
+    "main": {
+      "@types": {
+        "folders": {}
+      },
+      "adapters": {
         "folders": {
-          "repositories": {
+          "http": {
             "folders": {
-              "product": {
-                "folders": {}
-              },
-              "user": {
-                "folders": {}
-              }
-            }
-          },
-          "routes": {
-            "folders": {
-              "auth": {
-                "folders": {}
-              },
-              "product": {
-                "folders": {}
-              },
-              "user": {
-                "folders": {}
-              }
-            }
-          },
-          "useCases": {
-            "folders": {
-              "auth": {
-                "folders": {}
-              },
-              "product": {
-                "folders": {}
-              },
-              "user": {
-                "folders": {}
-              }
+              "interfaces": {}
             }
           }
         }
       },
-      "infra": {
+      "api": {
         "folders": {
-          "repositories": {
-            "folders": {
-              "product": {
-                "folders": {}
-              },
-              "user": {
-                "folders": {}
-              }
-            }
-          },
-          "routes": {
-            "folders": {
-              "auth": {
-                "folders": {
-                  "login": {
-                    "folders": {}
-                  },
-                  "me": {
-                    "folders": {}
-                  }
-                }
-              },
-              "products": {
-                "folders": {
-                  "create": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  },
-                  "delete": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  },
-                  "list": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  },
-                  "listById": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  },
-                  "update": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  }
-                }
-              },
-              "user": {
-                "folders": {
-                  "create": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  },
-                  "delete": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  },
-                  "list": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  },
-                  "listById": {
-                    "folders": {
-                      "dto": {
-                        "folders": {}
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "sequelize": {
-            "folders": {
-              "migrations": {
-                "folders": {}
-              },
-              "models": {
-                "folders": {
-                  "product": {
-                    "folders": {}
-                  },
-                  "user": {
-                    "folders": {}
-                  }
-                }
-              }
-            }
-          },
-          "services": {
-            "folders": {
-              "encryptor": {
-                "folders": {}
-              },
-              "tokenGenerator": {
-                "folders": {}
-              }
-            }
-          }
+          "config": {},
+          "interfaces": {}
         }
       },
-      "main": {
-        "folders": {
-          "@types": {
-            "folders": {}
-          },
-          "adapters": {
-            "folders": {
-              "http": {
-                "folders": {
-                  "interfaces": {
-                    "folders": {}
-                  }
-                }
-              }
+      "docs": {
+        "swagger": {
+          "components": {
+            "auth": {
+              "schema": {}
+            },
+            "products": {
+              "schema": {}
+            },
+            "user": {
+              "schema": {}
             }
           },
-          "api": {
-            "folders": {
-              "config": {
-                "folders": {}
-              },
-              "interfaces": {
-                "folders": {}
-              }
-            }
-          },
-          "docs": {
-            "folders": {
-              "swagger": {
-                "folders": {
-                  "components": {
-                    "folders": {
-                      "auth": {
-                        "folders": {
-                          "schema": {
-                            "folders": {}
-                          }
-                        }
-                      },
-                      "products": {
-                        "folders": {
-                          "schema": {
-                            "folders": {}
-                          }
-                        }
-                      },
-                      "user": {
-                        "folders": {
-                          "schema": {
-                            "folders": {}
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "config": {
-                    "folders": {}
-                  },
-                  "responses": {
-                    "folders": {}
-                  },
-                  "schemas": {
-                    "folders": {}
-                  }
-                }
-              }
-            }
-          },
-          "middlewares": {
-            "folders": {}
-          }
+          "config": {},
+          "responses": {},
+          "schemas": {}
         }
       },
-      "usecases": {
-        "folders": {
-          "auth": {
-            "folders": {
-              "generateToken": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "login": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              }
-            }
-          },
-          "errors": {
-            "folders": {}
-          },
-          "product": {
-            "folders": {
-              "create": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "delete": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "list": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "listById": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "update": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              }
-            }
-          },
-          "user": {
-            "folders": {
-              "create": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "delete": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "list": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              },
-              "listById": {
-                "folders": {
-                  "dto": {
-                    "folders": {}
-                  }
-                }
-              }
-            }
-          }
+      "middlewares": {}
+    },
+    "usecases": {
+      "auth": {
+        "generateToken": {
+          "dto": {}
+        },
+        "login": {
+          "dto": {}
+        }
+      },
+      "errors": {},
+      "product": {
+        "create": {
+          "dto": {}
+        },
+        "delete": {
+          "dto": {}
+        },
+        "list": {
+          "dto": {}
+        },
+        "listById": {
+          "dto": {}
+        },
+        "update": {
+          "dto": {}
+        }
+      },
+      "user": {
+        "create": {
+          "dto": {}
+        },
+        "delete": {
+          "dto": {}
+        },
+        "list": {
+          "dto": {}
+        },
+        "listById": {
+          "dto": {}
         }
       }
     }
