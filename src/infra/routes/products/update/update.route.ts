@@ -5,6 +5,7 @@ import { UpdateProductUsecase } from "../../../../usecases/product/update/update
 import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { UpdateProductResponseDto } from "./dto/update.dto";
 import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
+import { authMiddleware } from "../../../../main/middlewares/auth.middlewares";
 
 export class UpdateProductRoute implements Route {
   private constructor(
@@ -65,6 +66,6 @@ export class UpdateProductRoute implements Route {
   }
 
   public getMiddlewares() {
-    return [];
+    return [authMiddleware];
   }
 }

@@ -4,6 +4,7 @@ import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { ListProductResponseDto } from "./dto/list.dto";
 import { ListProductOutputDto } from "../../../../usecases/product/list/dto/list.output.dto";
 import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
+import { authMiddleware } from "../../../../main/middlewares/auth.middlewares";
 
 export class ListProductRoute implements Route {
   private constructor(
@@ -59,6 +60,6 @@ export class ListProductRoute implements Route {
   }
 
   public getMiddlewares() {
-    return [];
+    return [authMiddleware];
   }
 }
