@@ -5,6 +5,7 @@ import { CreateProductResponseDto } from "./dto/create.dto";
 import { CreateProductInputDto } from "../../../../usecases/product/create/dto/create.input.dto";
 import { CreateProductOutputDto } from "../../../../usecases/product/create/dto/create.output.dto";
 import { StatusCode } from "../../../../main/adapters/http/interfaces/statusCode.enum";
+import { authMiddleware } from "../../../../main/middlewares/auth.middlewares";
 
 export class CreateProductRoute implements Route {
   private constructor(
@@ -63,6 +64,6 @@ export class CreateProductRoute implements Route {
   }
 
   public getMiddlewares() {
-    return [];
+    return [authMiddleware];
   }
 }

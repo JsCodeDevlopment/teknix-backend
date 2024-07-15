@@ -4,6 +4,7 @@ import { HTTPMethod, HttpMethod, Route } from "../../../../main/api/route";
 import { DeleteProductInputDto } from "../../../../usecases/product/delete/dto/delete.input.dto";
 import { DeleteProductOutputDto } from "../../../../usecases/product/delete/dto/delete.output.dto";
 import { DeleteProductResponseDto } from "./dto/delete.dto";
+import { authMiddleware } from "../../../../main/middlewares/auth.middlewares";
 
 export class DeleteProductRoute implements Route {
   private constructor(
@@ -59,6 +60,6 @@ export class DeleteProductRoute implements Route {
   }
 
   public getMiddlewares() {
-    return [];
+    return [authMiddleware];
   }
 }
