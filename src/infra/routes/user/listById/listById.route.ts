@@ -17,7 +17,7 @@ export class ListUserByIdRoute implements Route {
     listUserByIdService: ListUserByIdUsecase
   ): ListUserByIdRoute {
     return new ListUserByIdRoute(
-      "/users/list/:id",
+      "/users/:id",
       listUserByIdService,
       HttpMethod.GET
     );

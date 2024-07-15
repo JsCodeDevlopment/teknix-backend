@@ -3,7 +3,7 @@ import { internalServerErrorResponse } from "../../responses/server.error.respon
 import { unauthorizedResponse } from "../../responses/unauthorized.response";
 
 export const userSwaggerDefinitions = {
-  "/users/create": {
+  "/users": {
     post: {
       summary: "Permite a criação de um novo usuário.",
       tags: ["Users"],
@@ -32,8 +32,6 @@ export const userSwaggerDefinitions = {
         [StatusCode.INTERNAL_SERVER_ERROR]: internalServerErrorResponse(),
       },
     },
-  },
-  "/users/list": {
     get: {
       summary: "Retorna a lista de usuários",
       tags: ["Users"],
@@ -56,7 +54,7 @@ export const userSwaggerDefinitions = {
       },
     },
   },
-  "/users/list/:id": {
+  "/users/:id": {
     get: {
       summary: "Retorna um único usuário",
       tags: ["Users"],
@@ -75,8 +73,6 @@ export const userSwaggerDefinitions = {
         [StatusCode.INTERNAL_SERVER_ERROR]: internalServerErrorResponse(),
       },
     },
-  },
-  "/users/delete/:id": {
     delete: {
       summary: "Deleta um usuário.",
       tags: ["Users"],
