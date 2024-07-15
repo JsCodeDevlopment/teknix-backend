@@ -224,7 +224,46 @@
             }
           },
           "docs": {
-            "folders": {}
+            "folders": {
+              "swagger": {
+                "folders": {
+                  "components": {
+                    "folders": {
+                      "auth": {
+                        "folders": {
+                          "schema": {
+                            "folders": {}
+                          }
+                        }
+                      },
+                      "products": {
+                        "folders": {
+                          "schema": {
+                            "folders": {}
+                          }
+                        }
+                      },
+                      "user": {
+                        "folders": {
+                          "schema": {
+                            "folders": {}
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "config": {
+                    "folders": {}
+                  },
+                  "responses": {
+                    "folders": {}
+                  },
+                  "schemas": {
+                    "folders": {}
+                  }
+                }
+              }
+            }
           },
           "middlewares": {
             "folders": {}

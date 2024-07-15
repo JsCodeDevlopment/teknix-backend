@@ -4,6 +4,7 @@ import { Route } from "./route";
 import cors, { CorsOptions } from "cors";
 import { connectDatabase } from "../../infra/sequelize";
 import { errorHandlerMiddleware } from "../middlewares/error.handler.middlewares";
+import { setupSwagger } from "../docs/swagger/config/swagger.config";
 
 export class ApiExpress implements Api {
   private app: Express;
@@ -18,7 +19,8 @@ export class ApiExpress implements Api {
     this.app.use(cors(corsOptions));
 
     middlewares.forEach((middleware) => this.app.use(middleware));
-
+    setupSwagger(this.app);
+    
     this.addRoutes(routes);
     this.app.use(errorHandlerMiddleware);
   }

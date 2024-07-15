@@ -10,7 +10,7 @@ import { corsOptions } from "./main/api/config/cors";
 import { createUserRepository } from "./factories/repositories/user/user.repository.factory";
 import { createUserUseCases } from "./factories/useCases/user/user.usecase.factory";
 import { createUserRoutes } from "./factories/routes/user/user.routes.factory.";
-import { generateFolderStructure } from "./main/docs/index";
+import { generateFolderStructure } from "./main/docs/make.structure";
 import { BcryptPasswordEncryptor } from "./infra/services/encryptor/bcrypt.encryptor";
 import { loginUserUseCases } from "./factories/useCases/auth/login.usecase.factory";
 import { loginRoutes } from "./factories/routes/auth/login.routes.factory.";
