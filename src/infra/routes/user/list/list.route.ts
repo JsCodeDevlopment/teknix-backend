@@ -13,7 +13,7 @@ export class ListUserRoute implements Route {
   ) {}
 
   public static create(listUserService: ListUserUsecase): ListUserRoute {
-    return new ListUserRoute("/users/list", listUserService, HttpMethod.GET);
+    return new ListUserRoute("/users", listUserService, HttpMethod.GET);
   }
 
   public getHandler() {

@@ -3,7 +3,7 @@ import { internalServerErrorResponse } from "../../responses/server.error.respon
 import { unauthorizedResponse } from "../../responses/unauthorized.response";
 
 export const productSwaggerDefinitions = {
-  "/products/create": {
+  "/products": {
     post: {
       summary: "Permite a criação de um novo produto.",
       tags: ["Products"],
@@ -37,8 +37,6 @@ export const productSwaggerDefinitions = {
         [StatusCode.INTERNAL_SERVER_ERROR]: internalServerErrorResponse(),
       },
     },
-  },
-  "/products": {
     get: {
       summary: "Retorna a lista de produtos",
       tags: ["Products"],
@@ -66,7 +64,7 @@ export const productSwaggerDefinitions = {
       },
     },
   },
-  "/products/list/:id": {
+  "/products/:id": {
     get: {
       summary: "Retorna um único produto",
       tags: ["Products"],
@@ -90,8 +88,6 @@ export const productSwaggerDefinitions = {
         [StatusCode.INTERNAL_SERVER_ERROR]: internalServerErrorResponse(),
       },
     },
-  },
-  "/products/update/:id": {
     put: {
       summary: "Permite a edição de um produto.",
       tags: ["Products"],
@@ -124,8 +120,6 @@ export const productSwaggerDefinitions = {
         [StatusCode.INTERNAL_SERVER_ERROR]: internalServerErrorResponse(),
       },
     },
-  },
-  "/products/delete/:id": {
     delete: {
       summary: "Deleta um produto.",
       tags: ["Products"],
