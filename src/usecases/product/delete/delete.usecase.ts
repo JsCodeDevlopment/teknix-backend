@@ -1,5 +1,6 @@
 import { Product } from "../../../domain/product/entity/product.entity";
 import { ProductGateway } from "../../../domain/product/gateway/product.gateway";
+import { BadRequestError } from "../../errors/bad.request.error";
 import { NotFoundError } from "../../errors/not.found.request.error";
 import { Usecase } from "../../usecase";
 import { DeleteProductInputDto } from "./dto/delete.input.dto";
@@ -17,6 +18,8 @@ export class DeleteProductUsecase
   public async execute({
     id,
   }: DeleteProductInputDto): Promise<DeleteProductOutputDto> {
+    if (!id) throw new BadRequestError("Product not found");
+    
     const aProduct = await this.productGateway.listById(id);
 
     if (!aProduct) throw new NotFoundError("Product not found");

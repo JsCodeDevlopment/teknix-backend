@@ -1,5 +1,6 @@
 import { User } from "../../../domain/user/entity/user.entity";
 import { UserGateway } from "../../../domain/user/gateway/user.gateway";
+import { BadRequestError } from "../../errors/bad.request.error";
 import { NotFoundError } from "../../errors/not.found.request.error";
 import { Usecase } from "../../usecase";
 import { DeleteUserInputDto } from "./dto/delete.input.dto";
@@ -17,6 +18,8 @@ export class DeleteUserUsecase
   public async execute({
     id,
   }: DeleteUserInputDto): Promise<DeleteUserOutputDto> {
+    if (!id) throw new BadRequestError("Id not found");
+
     const aUser = await this.userGateway.listById(id);
 
     if (!aUser) throw new NotFoundError("User not found");

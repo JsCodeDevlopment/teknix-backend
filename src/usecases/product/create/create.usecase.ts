@@ -20,9 +20,10 @@ export class CreateProductUsecase
     description,
     image,
   }: CreateProductInputDto): Promise<CreateProductOutputDto> {
-    if (!name || !price || !description || !image) {
-      throw new BadRequestError("Some of the information was no longer received.");
-    }
+    if (!name || !price || !description || !image)
+      throw new BadRequestError(
+        "Some of the information was no longer received."
+      );
 
     const aProduct = Product.create(name, price, description, image);
 

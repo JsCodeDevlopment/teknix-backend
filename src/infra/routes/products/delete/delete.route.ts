@@ -17,7 +17,7 @@ export class DeleteProductRoute implements Route {
     deleteProductService: DeleteProductUsecase
   ): DeleteProductRoute {
     return new DeleteProductRoute(
-      "/products/:id",
+      "/products/delete/:id",
       deleteProductService,
       HttpMethod.DELETE
     );

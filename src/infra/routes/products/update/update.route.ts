@@ -18,7 +18,7 @@ export class UpdateProductRoute implements Route {
     updateProductService: UpdateProductUsecase
   ): UpdateProductRoute {
     return new UpdateProductRoute(
-      "/products/:id",
+      "/products/update/:id",
       updateProductService,
       HttpMethod.PUT
     );

@@ -14,12 +14,12 @@ export class ListUserByIdUsecase
     return new ListUserByIdUsecase(userGateway);
   }
 
-  public async execute(input: ListUserByIdInputDto): Promise<ListUserByIdOutputDto> {
+  public async execute(
+    input: ListUserByIdInputDto
+  ): Promise<ListUserByIdOutputDto> {
     const aUser = await this.userGateway.listById(input.id);
 
-    if (!aUser) {
-      throw new NotFoundError("User not found");
-    }
+    if (!aUser) throw new NotFoundError("User not found");
 
     const output = this.presentOutput(aUser);
 
