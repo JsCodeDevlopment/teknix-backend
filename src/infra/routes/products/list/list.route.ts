@@ -17,7 +17,7 @@ export class ListProductRoute implements Route {
     listProductService: ListProductUsecase
   ): ListProductRoute {
     return new ListProductRoute(
-      "/products",
+      "/products/list",
       listProductService,
       HttpMethod.GET
     );

@@ -18,7 +18,7 @@ export class ListProductByIdRoute implements Route {
     listProductByIdService: ListProductByIdUsecase
   ): ListProductByIdRoute {
     return new ListProductByIdRoute(
-      "/products/:id",
+      "/products/list/:id",
       listProductByIdService,
       HttpMethod.GET
     );
