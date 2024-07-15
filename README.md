@@ -177,11 +177,7 @@ npm install
 # ou
 yarn install
 ```
-2°→ Inicialização do Prisma:
-```bash
-npx prisma init
-```
-3°→ Configure o banco de dados no arquivo `.env` crie um arquivo `.env` e cole o código abaixo:
+2°→ Configure o banco de dados no arquivo `.env` crie um arquivo `.env` e cole o código abaixo:
 ```env
 DB_HOST="localhost"
 DB_NAME="teknix-express"
@@ -194,17 +190,17 @@ JWT_SECRET="token-verification"
 
 WHITELIST_URLS="http://localhost:8000"
 ```
-4°→ Subir o container no docker:
+3°→ Subir o container no docker:
 ```bash
 docker compose up -d
 ```
-5°→ Execute as migrações do Sequelize para configurar o banco de dados:
+4°→ Execute as migrações do Sequelize para configurar o banco de dados:
 ```bash
 npm run migrate:up
 # ou
 yarn migrate:up
 ```
-6°→ Execute a aplicação:
+5°→ Execute a aplicação:
 ```bash
 npm run dev
 # ou
