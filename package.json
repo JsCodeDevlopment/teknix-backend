@@ -9,7 +9,7 @@
     "migrate:up": "npx sequelize-cli db:migrate",
     "migrate:down": "npx sequelize-cli db:migrate:undo",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch src/main.ts"
+    "dev": "ts-node src/main.ts"
   },
   "keywords": [],
   "author": "",
