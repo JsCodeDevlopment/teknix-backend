@@ -33,6 +33,7 @@ export class CreateUserUsecase
     }
 
     const existingUser = await this.userGateway.findByEmail(email);
+    
     if (existingUser) throw new BadRequestError("Email already in use.");
 
     const hashedPassword = await this.passwordEncryptor.encrypt(password);
