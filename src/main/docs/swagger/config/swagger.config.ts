@@ -1,4 +1,3 @@
-// src/config/swagger.ts
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { Express } from 'express';
@@ -24,7 +23,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'http://localhost:8000/api',
+      url: 'http://localhost:8000/',
       description: 'Servidor de Desenvolvimento',
     },
   ],
