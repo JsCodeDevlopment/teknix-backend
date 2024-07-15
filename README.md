@@ -181,13 +181,18 @@ yarn install
 ```bash
 npx prisma init
 ```
-3°→ Configure o banco de dados no arquivo `.env`:
+3°→ Configure o banco de dados no arquivo `.env` crie um arquivo `.env` e cole o código abaixo:
 ```env
-DB_HOST="exemple"
-DB_NAME="exemple"
-DB_USER="exemple"
-DB_PASS="exemple"
+DB_HOST="localhost"
+DB_NAME="teknix-express"
+DB_USER="postgres"
+DB_PASS="password"
 DB_PORT=5432
+DB_DIALECT="postgres"
+
+JWT_SECRET="token-verification"
+
+WHITELIST_URLS="http://localhost:8000"
 ```
 4°→ Subir o container no docker:
 ```bash
