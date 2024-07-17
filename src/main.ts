@@ -45,7 +45,7 @@ function server() {
     corsOptions
   );
   const port = 8000;
-  generateFolderStructure("./src");
+  // generateFolderStructure("./src");
   api.start(port);
 }
 
