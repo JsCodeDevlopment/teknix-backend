@@ -9,6 +9,11 @@ const sequelize: Sequelize = new Sequelize({
   database: process.env.DB_NAME,
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
+  dialectModule: require("pg"),
+  ssl: process.env.DB_SSL === "require",
+  dialectOptions: {
+    ssl: { require: process.env.DB_SSL === "require" },
+  },
   models: [ProductModel, UserModel],
 });
 
