@@ -17,7 +17,7 @@ export class ApiExpress implements Api {
   ) {
     this.app = express();
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__dirname, "..", "public")))
+    this.app.use(express.static(resolve(__dirname, "../../..", "public")))
     this.app.use(cors(corsOptions));
 
     middlewares.forEach((middleware) => this.app.use(middleware));
